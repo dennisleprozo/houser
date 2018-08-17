@@ -6,7 +6,7 @@ import StepThree from './StepThree/StepThree';
 import { connect } from 'react-redux'
 import {cancel} from '../../ducks/reducer.js'
 
-export class Wizard extends Component {
+class Wizard extends Component {
 //this is where the fun begins where idk why i deleted all front page
   cancel() {
     let {cancel} = this.props;
@@ -30,3 +30,4 @@ export class Wizard extends Component {
 }
 
 export default connect(null, {cancel})(Wizard);
+
