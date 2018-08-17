@@ -1,55 +1,32 @@
 import React, { Component } from "react";
+import { Link, Route, Switch } from 'react-router-dom';
+import StepOne from './StepOne/StepOne';
+import StepTwo from './StepTwo/StepTwo';
+import StepThree from './StepThree/StepThree';
+import { connect } from 'react-redux'
+import {cancel} from '../../ducks/reducer.js'
 
-export default class Wizard extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      name: "",
-      address: "",
-      city: "",
-      state: "",
-      zipcode: 0
-    };
-  }
-
-  handleChange(name) {
-    this.setState({ nuname: name });
+export class Wizard extends Component {
+//this is where the fun begins where idk why i deleted all front page
+  cancel() {
+    let {cancel} = this.props;
+    cancel();
   }
 
   render() {
     return (
       <div>
-        <h2>Add New Listing</h2>
-        <h3>Property Name</h3>
-        <input
-          onChange={e => this.handleChange(e.target.value)}
-          type="text"
-          placeholder="Property Name"
-        />
-        <h3>Address</h3>
-        <input
-          onChange={e => this.handleChange(e.target.value)}
-          type="text"
-          placeholder="Address"
-        />
-        <h3>City State Zip</h3>
-        <input
-          onChange={e => this.handleChange(e.target.value)}
-          type="text"
-          placeholder="City"
-        />
-        <input
-          onChange={e => this.handleChange(e.target.value)}
-          type="text"
-          placeholder="State"
-        />
-        <input
-          onChange={e => this.handleChange(e.target.value)}
-          type="number"
-          placeholder="Zipcode"
-        />
+        <Link to='/'>
+          <button onClick={() => this.cancel()}>Cancel</button>
+        </Link>
+        <Switch>
+            <Route component={StepOne} path='/wizard/step1'  />
+            <Route component={StepTwo} path='/wizard/step2'  />
+            <Route component={StepThree} path='/wizard/step3'  />
+        </Switch>
       </div>
     );
   }
 }
+
+export default connect(null, {cancel})(Wizard);

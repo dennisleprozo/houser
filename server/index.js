@@ -25,5 +25,5 @@ const {
 } = process.env
 
 app.listen(SERVER_PORT, () => {
-    console.log(`Server listening on Port ${SERVER_PORT}`);
+    console.log(`Don't stop listening on Port ${SERVER_PORT}`);
 })
