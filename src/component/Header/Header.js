@@ -3,9 +3,7 @@ import React from "react";
 export default function Header() {
   return (
     <div>
-      <h2>Header -->>> Houser Logo
-
-      </h2>
+      <h2>(Logo) Houser</h2>
     </div>
   );
 }

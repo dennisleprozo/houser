@@ -1,33 +1,44 @@
-//this is where im at 4pm? Dude!
 const initialState={
- name:"",
- address:"",
- city:"",
- state:"",
- zip:0,
- img_url:"",
- mortgage:0,
- rent:0,
+    name:"",
+    address:"",
+    city:"",
+    state:"",
+    zip:0,
+    img:"",
+    mortgage:0,
+    rent:0,
 };
 
-//party on!
+//defining the action
 const UPDATE_NAME = "UPDATE_NAME";
 const UPDATE_ADDRESS = "UPDATE_ADDRESS";
 const UPDATE_CITY = "UPDATE_CITY";
 const UPDATE_STATE = "UPDATE_STATE";
 const UPDATE_ZIP = "UPDATE_ZIP";
-const UPDATE_IMG_URL = "UPDATE_IMG_URL";
+const UPDATE_IMG = "UPDATE_IMG";
 const UPDATE_MORTGAGE = "UPDATE_MORTGAGE";
 const UPDATE_RENT = "UPDATE_RENT";
 const CANCEL = "CANCEL";
 
-//make a cancel for Wizard
+//making action
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case UPDATE_NAME:
-            return Object.assign({}, 
-                state, 
-                {name: action.payload});
+            return Object.assign({}, state, {name: action.payload});
+        case UPDATE_ADDRESS:
+            return Object.assign({}, state, {address: action.payload});
+        case UPDATE_CITY:
+            return Object.assign({}, state, {city: action.payload});
+        case UPDATE_STATE:
+            return Object.assign({}, state, {state: action.payload});
+        case UPDATE_ZIP:
+            return Object.assign({}, state, {zip: action.payload});
+        case UPDATE_IMG:
+            return Object.assign({}, state, {img: action.payload});
+        case UPDATE_MORTGAGE:
+            return Object.assign({}, state, {mortgage: action.payload});
+        case UPDATE_RENT:
+            return Object.assign({}, state, {rent: action.payload});
         case CANCEL:
             state = {
                 name:"",
@@ -35,13 +46,15 @@ export default function reducer(state = initialState, action) {
                 city:"",
                 state:"",
                 zip:0,
-                img_url:"",
+                img:"",
                 mortgage:0,
                 rent:0,
-               };
+            };
+        default:
+        return state;
             }
     }
-
+//action builders
 export function cancel() {
     return {
         type:CANCEL
@@ -62,4 +75,26 @@ export function updateAddress(address) {
     }
 }
 
-//OMG tis 5pm
+export function updateCity(city) {
+    return {
+        type: UPDATE_CITY,
+        payload: city
+    }
+}
+
+export function updateState(state) {
+    return {
+        type: UPDATE_STATE,
+        payload: state
+    }
+}
+
+export function updateZip(zip) {
+    return {
+        type: UPDATE_ZIP,
+        payload: zip
+    }
+}
+
+
+

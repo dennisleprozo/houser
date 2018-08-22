@@ -4,7 +4,7 @@ import StepOne from './StepOne/StepOne';
 import StepTwo from './StepTwo/StepTwo';
 import StepThree from './StepThree/StepThree';
 import { connect } from 'react-redux'
-import {cancel} from '../../ducks/reducer.js'
+import { cancel } from '../../ducks/reducer.js'
 
 class Wizard extends Component {
 //this is where the fun begins where idk why i deleted all front page
@@ -19,6 +19,7 @@ class Wizard extends Component {
         <Link to='/'>
           <button onClick={() => this.cancel()}>Cancel</button>
         </Link>
+
         <Switch>
             <Route component={StepOne} path='/wizard/step1'  />
             <Route component={StepTwo} path='/wizard/step2'  />
